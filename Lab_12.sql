@@ -84,10 +84,11 @@ INNER JOIN enclosures
 ON assignments.enclosure_id = enclosures.id
 WHERE enclosures.closedForMaintenance = true;
 
-SELECT enclosures.name FROM animals
-INNER JOIN enclosures
+SELECT enclosures.name FROM enclosures
+INNER JOIN animals
 ON animals.enclosure_id = enclosures.id
-ORDER BY animals.age DESC LIMIT 1;
+ORDER BY animals.age DESC
+LIMIT 1;
 
 SELECT staffs.name, COUNT(DISTINCT animals.type) FROM animals
 INNER JOIN enclosures
@@ -109,4 +110,5 @@ WHERE enclosures.name = 'Lion Den';
 SELECT animals.name FROM animals
 INNER JOIN enclosures
 ON animals.enclosure_id = enclosures.id
-WHERE animals.name != 'John' AND enclosures.name = 'Lion Den';
+WHERE animals.name != 'John'
+AND enclosures.name = 'Lion Den';
